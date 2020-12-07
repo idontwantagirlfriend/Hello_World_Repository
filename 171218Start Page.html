@@ -3,45 +3,22 @@
 <head>
     <meta charset="GB2312">
     <script>
-	<!--src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"-->
-	var Daily="Carpe diem!!! ";
-	var Init="输入您的计划："
         function todisplayPlan() {
             var myPlan = document.getElementById('inputPlan').value;
 			if (myPlan === "") {
-				if(displayedPlan.innerHTML === "" || displayedPlan.innerHTML === Init) {
-                displayedPlan.innerHTML = Daily;
-				}
-				else {}
+                displayedPlan.innerHTML = '您的法语很糟糕，但它很有希望！您的数学不太满意，但您需要它！您的计算机技术很基础，但这是您的理想！加油，多语言的程序员！';
             }
             else if (myPlan === "%clear%") {
-                displayedPlan.innerHTML = Init;
+                displayedPlan.innerHTML = '';
             }
-			else if (myPlan === "%home%") {
-				displayedPlan.innerHTML = Daily;
-			}
             else {
-                if (displayedPlan.innerHTML === Daily || displayedPlan.innerHTML === Init) {
+                if (displayedPlan.innerHTML === '您的法语很糟糕，但它很有希望！您的数学不太满意，但您需要它！您的计算机技术很基础，但这是您的理想！加油，多语言的程序员！') {
                     displayedPlan.innerHTML = '';
-			        displayedPlan.innerHTML += myPlan + "<br/>";
                 }
-				else {
-			    displayedPlan.innerHTML += myPlan + "<br/>";
-				txtarea.scrollTop = displayedPlan.scrollHeight;
-				}
-				}				
-				if (displayedPlan.innerHTML === Init) {
-				displayedPlan.style.color='#a0a0a0';
-				}
-				else {
-				displayedPlan.style.color='#000000';
-				}
-			inputPlan.value="";
-				//$(document).ready(function(){
-				//{$(#txtarea).scrollTop($(#displayedPlan).height);
-				//});
-				//Pourquoi ?a n'y va pas?
-			}
+                    displayedPlan.innerHTML += myPlan + "<br/>";
+                }
+				inputPlan.value="";
+            }
 		function entercheck()  {
 		var x;
 		if(window.event)  {
@@ -51,9 +28,9 @@
 		x = event.which;
 		}
 		if (x === 13)  {
-		todisplayPlan();
+		todisplayPlan()
 		}
-		}
+		return;}
 		
 		function Studiomode()  {
 		window.open("https://en.wiktionary.org");
@@ -172,10 +149,6 @@
 		-sizing:border-box;
 		}
 	  
-	  #displayedPlan {
-	  color:#a0a0a0;
-	  }
-	  
 	  #hatword {
 	  position:absolute;
 	  height:100%;
@@ -203,8 +176,6 @@
             font-family: Microsoft Yahei;
             max-height: 20%;
             color: #000000;
-			border:0px;
-			//border:2px solid black;
             overflow: auto;
             -webkit-box-sizing: border-box;
             -moz-sizing: border-box;
@@ -220,7 +191,6 @@
             margin-bottom: 20px;
             text-align: center;
 			border: 1px solid #92c3ff;
-			<!--border:2px solid black;-->
             -webkit-box-sizing: border-box;
             -moz-sizing: border-box;
             -sizing: border-box;
@@ -316,7 +286,7 @@ font-family:Microsoft Yahei;">
 						margin-bottom:0px;
 						padding:30px;
 						font-family:'Tahoma',serif,monospace;
-						height:1200px;;
+						height:1080px;;
 						-webkit-box-sizing:border-box;
 						-moz-sizing:border-box;
 						-sizing:border-box;">
@@ -328,7 +298,7 @@ font-family:Microsoft Yahei;">
 							-webkit-box-sizing:border-box;
 							-moz-sizing:border-box;
 							-sizing:border-box;">
-				<a href="https://net.bfsu.edu.cn/bfsuPortal/bfsu/login.jsp" target=_blank>
+                <a href="https://net.bfsu.edu.cn/bfsuPortal/bfsu/login.jsp" target=_blank>
                     <button style="
 position:relative;
 width:100%;
@@ -340,7 +310,7 @@ border: 1px solid #92c3ff;
 -webkit-box-sizing:border-box;
 -moz-sizing:border-box;
 -sizing:border-box;" onmouseover="mouseover(this);" onmousedown="mousedown(this);" onmouseup="mouseover(this);" onmouseout="mouseout(this);">
-                        Network Authorisation
+                        网络验证
                     </button>
                 </a>
                 <div style="
@@ -360,16 +330,6 @@ height:100%;
 right:0px;
 border: 0px;
 "></iframe>
-<!-- <div style=" -->
-<!-- position:relative; -->
-<!-- width:100%; -->
-<!-- border:0px; -->
-<!-- height:100%; -->
-<!-- right:0px; -->
-<!-- border: 0px; -->
-<!-- font-family:Consolas; -->
-<!-- font-size:3em; -->
-<!-- overflow:invisible;">Vous êtes à la maison!!!</div> -->
                 </div>
             </div>
             <div class=tab>
@@ -430,30 +390,11 @@ border: 0px;
                         Merriam-Webster
                     </div>
                 </button>
-            </a><a href="https://quizlet.com/latest" target=_blank>
-                <button class=abutton onmouseover="mouseover(this);" onmousedown="mousedown(this);" onmouseup="mouseover(this);" onmouseout="mouseout(this);">
-                    <div class="pic-link">
-                        <svg class="pic-x" alt="Quizlet" fill="currentColor" viewBox="0 0 244 53">
-                        <path d="M26.99 1.09c15.382 0 26.99 11.36 26.99 25.883 0 6.687-2.54 12.583-6.676 17.04l7.182 7.98H42.37l-2.49-2.847c-3.6 2.482-8.102 3.638-12.89 3.638C11.68 52.784 0 41.496 0 26.974 0 12.017 12.116 1.09 26.99 1.09zm0 41.7c2.03 0 3.844-.43 5.586-1.15L22.2 29.993h12.117l5.587 6.4c2.03-2.518 2.974-5.537 2.974-9.42 0-8.698-6.6-15.817-15.89-15.817-9.287 0-15.814 7.046-15.814 15.817 0 8.915 6.527 15.818 15.815 15.818zM61.035 15.76H71.99v20.706c0 4.89 3.048 6.686 6.676 6.686 3.627 0 6.675-1.797 6.675-6.686V15.758h10.956v21.64C96.296 48.04 88.026 53 78.666 53s-17.63-4.96-17.63-15.6V15.757zm42.75 36.235h10.81V15.758h-10.81v36.235zm-.992-45.69c0-3.56 2.92-6.303 6.36-6.303 3.518 0 6.36 2.743 6.36 6.303 0 3.485-2.842 6.23-6.36 6.23-3.44 0-6.36-2.745-6.36-6.23zm35.738 18.873h-16.74v-9.418h35.332l-20.15 26.817h19.133v9.418h-37.94l20.365-26.817zm23.67 26.817h10.81V1.883H162.2v50.11zm17.063-18.19c0-11.503 8.272-18.908 19.372-18.908 11.173 0 18.5 8.196 18.5 18.334 0 0 0 2.03-.217 3.684h-26.843c.218 4.314 3.48 6.883 9.648 6.883 6.966 0 10.883-2.085 12.987-3.523v9.347c-3.41 2.157-7.182 3.308-13.567 3.308-12.263 0-19.88-7.405-19.88-18.765v-.36zm26.99-4.026c0-3.235-3.337-5.967-7.618-5.967-4.498 0-8.27 2.66-8.488 5.967h16.105zm19.172-4.313h-4.86v-9.706h4.86V1.882h10.52v13.876H244v9.706h-8.054v26.53h-10.52v-26.53z" fill-rule="evenodd"></path>
-                      </svg>
-                    </div>
-                    <div class="caption">
-                        Quizlet
-                    </div>
-                </button>
-            </a><a href="https://www.wordreference.com/" target=_blank>
-                <button class="abutton" onmouseover="mouseover(this);" onmousedown="mousedown(this);" onmouseup="mouseover(this);" onmouseout="mouseout(this);">
-					<div class="pic-link">
-						<img border="0" src="thumbnail WordReference.png" alt="WordReference" class="pic-x" />
-					</div>
-					<div class="caption">
-						WordReference
-					</div>
-				</button>
-			</a><div class=tab>
-                <strong style="font-family:Consolas;">Life of coding and developing</strong>
+            </a>
+            <div class=tab>
+                <strong>Life of coding and developing</strong>
             </div>
-            <hr/>
+            <hr />
             <a href="https://msdn.microsoft.com/en-us" target=_blank>
                 <button class="abutton" onmouseover="mouseover(this);" onmousedown="mousedown(this);" onmouseup="mouseover(this);" onmouseout="mouseout(this);">
                     <div class="pic-link">
@@ -517,18 +458,8 @@ border: 0px;
                     </div>
                 </button>
 			</a>
-			<a href="https://support.microsoft.com/en-us/contactus" target=_blank>
-			<button class="abutton" onmouseover="mouseover(this);" onmousedown="mousedown(this);" onmouseup="mouseover(this);" onmouseout="mouseout(this);">
-			<div class="pic-link">
-			<img border="0" src="https://assets.onestore.ms/cdnfiles/external/uhf/long/9a49a7e9d8e881327e81b9eb43dabc01de70a9bb/images/microsoft-gray.png" class="pic-x" alt="Microsoft Support" />
-			</div>
-			<div class="caption">
-                        MS Support
-			</div>
-			</button>
-			</a>
             <div class=tab>
-                <strong style="color:#FFFFFF;">Solve a problem</strong>
+                <strong>Solve a problem</strong>
             </div>
             <hr />
             <a href="https://cn.bing.com/?ensearch=1" target=_blank>
@@ -549,69 +480,15 @@ border: 0px;
                         Wikipedia (En)
                     </div>
                 </button>
-            </a><a href="https://www.google.fr/" target=_blank>
-                <button class="abutton" onmouseover="mouseover(this);" onmousedown="mousedown(this);" onmouseup="mouseover(this);" onmouseout="mouseout(this);">
-                    <div class="pic-link">
-                        <img src="https://www.google.fr/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" class="pic-x" alt="google.fr" />
-                    </div>
-                    <div class="caption">
-                        Google.fr
-                    </div>
-                </button>
-			</a><a href="https://www.google.de/" target=_blank>
-                <button class="abutton" onmouseover="mouseover(this);" onmousedown="mousedown(this);" onmouseup="mouseover(this);" onmouseout="mouseout(this);">
-                    <div class="pic-link">
-                        <img src="https://www.google.de/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" class="pic-x" alt="google.de" />
-                    </div>
-                    <div class="caption">
-                        Google.de
-                    </div>
-                </button>
-			</a><a href="https://www.google.co.jp/" target=_blank>
-                <button class="abutton" onmouseover="mouseover(this);" onmousedown="mousedown(this);" onmouseup="mouseover(this);" onmouseout="mouseout(this);">
-                    <div class="pic-link">
-                        <img src="https://www.google.co.jp/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" class="pic-x" alt="google.co.jp" />
-                    </div>
-                    <div class="caption">
-                        Google.co.jp
-                    </div>
-                </button>
-			</a><a href="https://www.google.com.hk/" target=_blank>
-                <button class="abutton" onmouseover="mouseover(this);" onmousedown="mousedown(this);" onmouseup="mouseover(this);" onmouseout="mouseout(this);">
-                    <div class="pic-link">
-                        <img src="https://www.google.com.hk/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" class="pic-x" alt="google.com.hk" />
-                    </div>
-                    <div class="caption">
-                        Google.com.hk
-                    </div>
-                </button>
-			</a><a href="https://www.google.it/" target=_blank>
-                <button class="abutton" onmouseover="mouseover(this);" onmousedown="mousedown(this);" onmouseup="mouseover(this);" onmouseout="mouseout(this);">
-                    <div class="pic-link">
-                        <img src="https://www.google.it/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" class="pic-x" alt="google.it" />
-                    </div>
-                    <div class="caption">
-                        Google.it
-                    </div>
-                </button>
-			</a><a href="https://www.google.co.uk/" target=_blank>
-                <button class="abutton" onmouseover="mouseover(this);" onmousedown="mousedown(this);" onmouseup="mouseover(this);" onmouseout="mouseout(this);">
-                    <div class="pic-link">
-                        <img src="https://www.google.co.uk/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" class="pic-x" alt="google.co.uk" />
-                    </div>
-                    <div class="caption">
-                        Google.co.uk
-                    </div>
-                </button>
             </a>
             <div class=tab>
-                <strong style="color:#FFFFFF;">Social</strong>
+                <strong>Social</strong>
             </div>
             <hr />
             <a href="http://yeah.net/" target=_blank>
                 <button class="abutton" onmouseover="mouseover(this);" onmousedown="mousedown(this);" onmouseup="mouseover(this);" onmouseout="mouseout(this);">
                     <div class="pic-link">
-                        <img src="https://mimg.127.net/logo/yeahlogo.gif" class="pic-x" alt="Yeah email" />
+                        <img src="https://mimg.127.net/logo/yeahlogo.gif" class="pic-x" alt="bing" />
                     </div>
                     <div class="caption">
                         Yeah Mail
@@ -647,7 +524,7 @@ border: 0px;
 		</div>
         <div id="clipboard">
 		<div id="txtarea">
-                <p id="displayedPlan">输入您的计划：</p>
+                <p id="displayedPlan">您的法语很糟糕，但它很有希望！您的数学不太满意，但您需要它！您的计算机技术很基础，但这是您的理想！加油，多语言的程序员！</p>
 		</div>
             <input type="text" id="inputPlan" value="" onkeypress="entercheck();"/><input type="submit" id="todisplayPlan" value="Post it" onclick="todisplayPlan();" onmouseover="mouseover(this);" onmousedown="mousedown(this);" onmouseup="mouseover(this);" onmouseout="mouseout(this);"/>
         </div>
@@ -671,7 +548,7 @@ border: 0px;
     <address style="text-align:right;font-family:Microsoft Yahei;color:#ffffff;">
       创建时间：2017/12/11(UTC)
       <br/>
-        最后一次更新时间：12:13 - 13/3/2018(UTC)
+        最后一次更新时间：2017/12/17(UTC)
         <br/>
           制作人员：Paradoxe
           <br/>

@@ -4,15 +4,16 @@
     <meta charset="GB2312">
     <script>
 	<!--src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"-->
-	var Daily="Carpe diem!!! ";
-	var Init="输入您的计划："
-        function todisplayPlan() {
+	var Daily="Workflow matters most.";
+	var Manuel="1. get-help / help / man - Type in &quot;%help%&quot;.<br>2. clear-host / clear / cls - &quot;%clear%&quot;.<br>3. get-daily - &quot;%home%&quot;.<br>4. Input text into the box supra - Type in your words and press enter. The input system relies on your action on enter key.";
+	//This happens as an old problem. Long text doesn't seem to support reference in the script infra, as in "if(displayedPlan.innerHTML === "" || displayedPlan.innerHTML === Init || displayedPlan.innerHTML === Manuel) {displayedPlan.innerHTML = Daily;}". This is a beta version and not for released du a ce probleme.
+	var Init="输入您的计划：";
+		function todisplayPlan() {
             var myPlan = document.getElementById('inputPlan').value;
 			if (myPlan === "") {
-				if(displayedPlan.innerHTML === "" || displayedPlan.innerHTML === Init) {
+				if(displayedPlan.innerHTML === "" || displayedPlan.innerHTML === Init || displayedPlan.innerHTML === Manuel) {
                 displayedPlan.innerHTML = Daily;
 				}
-				else {}
             }
             else if (myPlan === "%clear%") {
                 displayedPlan.innerHTML = Init;
@@ -20,8 +21,11 @@
 			else if (myPlan === "%home%") {
 				displayedPlan.innerHTML = Daily;
 			}
+			else if (myPlan === "%help%") {
+				displayedPlan.innerHTML = Manuel;
+			}
             else {
-                if (displayedPlan.innerHTML === Daily || displayedPlan.innerHTML === Init) {
+                if (displayedPlan.innerHTML === Daily || displayedPlan.innerHTML === Init || displayedPlan.innerHTML === Manuel) {
                     displayedPlan.innerHTML = '';
 			        displayedPlan.innerHTML += myPlan + "<br/>";
                 }
@@ -29,7 +33,7 @@
 			    displayedPlan.innerHTML += myPlan + "<br/>";
 				txtarea.scrollTop = displayedPlan.scrollHeight;
 				}
-				}				
+				}
 				if (displayedPlan.innerHTML === Init) {
 				displayedPlan.style.color='#a0a0a0';
 				}
@@ -235,6 +239,18 @@
             -sizing: border-box;
         }
 
+		.text-x {
+            position: relative;
+            height: 100%;
+            max-width: 100%;
+			font-family:'Segoe UI',Microsoft Yahei,monospace;
+			font-size:100%;
+			font-weight:500;
+			word-wrap:break-word;
+            -webkit-box-sizing: border-box;
+            -moz-sizing: border-box;
+            -sizing: border-box;
+        }
         .pic-link {
             position: relative;
             width: 100%;
@@ -316,7 +332,7 @@ font-family:Microsoft Yahei;">
 						margin-bottom:0px;
 						padding:30px;
 						font-family:'Tahoma',serif,monospace;
-						height:1200px;;
+						height:1080px;;
 						-webkit-box-sizing:border-box;
 						-moz-sizing:border-box;
 						-sizing:border-box;">
@@ -328,7 +344,8 @@ font-family:Microsoft Yahei;">
 							-webkit-box-sizing:border-box;
 							-moz-sizing:border-box;
 							-sizing:border-box;">
-				<a href="https://net.bfsu.edu.cn/bfsuPortal/bfsu/login.jsp" target=_blank>
+                <a href="javascript:alert('You are currently at home!');">
+				<!--href="https://net.bfsu.edu.cn/bfsuPortal/bfsu/login.jsp" target=_blank--> 
                     <button style="
 position:relative;
 width:100%;
@@ -340,7 +357,7 @@ border: 1px solid #92c3ff;
 -webkit-box-sizing:border-box;
 -moz-sizing:border-box;
 -sizing:border-box;" onmouseover="mouseover(this);" onmousedown="mousedown(this);" onmouseup="mouseover(this);" onmouseout="mouseout(this);">
-                        Network Authorisation
+                        现在不用验证
                     </button>
                 </a>
                 <div style="
@@ -352,24 +369,25 @@ border: 0px;
 -moz-sizing:border-box;
 -sizing:border-box;
 ">
-                    <iframe src="https://net.bfsu.edu.cn/bfsuPortal/bfsu/login.jsp" style="
+                    <!--<iframe src="https://net.bfsu.edu.cn/bfsuPortal/bfsu/login.jsp" style="
 position:relative;
 width:100%;
 border:0px;
 height:100%;
 right:0px;
 border: 0px;
-"></iframe>
-<!-- <div style=" -->
-<!-- position:relative; -->
-<!-- width:100%; -->
-<!-- border:0px; -->
-<!-- height:100%; -->
-<!-- right:0px; -->
-<!-- border: 0px; -->
-<!-- font-family:Consolas; -->
-<!-- font-size:3em; -->
-<!-- overflow:invisible;">Vous êtes à la maison!!!</div> -->
+"></iframe>-->
+<div style="
+position:relative;
+width:100%;
+border:0px;
+height:100%;
+right:0px;
+border: 0px;
+font-family:Consolas;
+font-size:3em;
+overflow:invisible;">Vous êtes à la maison!!!</div>
+
                 </div>
             </div>
             <div class=tab>
@@ -441,19 +459,11 @@ border: 0px;
                         Quizlet
                     </div>
                 </button>
-            </a><a href="https://www.wordreference.com/" target=_blank>
-                <button class="abutton" onmouseover="mouseover(this);" onmousedown="mousedown(this);" onmouseup="mouseover(this);" onmouseout="mouseout(this);">
-					<div class="pic-link">
-						<img border="0" src="thumbnail WordReference.png" alt="WordReference" class="pic-x" />
-					</div>
-					<div class="caption">
-						WordReference
-					</div>
-				</button>
-			</a><div class=tab>
+            </a>
+			<div class=tab>
                 <strong style="font-family:Consolas;">Life of coding and developing</strong>
             </div>
-            <hr/>
+            <hr />
             <a href="https://msdn.microsoft.com/en-us" target=_blank>
                 <button class="abutton" onmouseover="mouseover(this);" onmousedown="mousedown(this);" onmouseup="mouseover(this);" onmouseout="mouseout(this);">
                     <div class="pic-link">
@@ -517,16 +527,16 @@ border: 0px;
                     </div>
                 </button>
 			</a>
-			<a href="https://support.microsoft.com/en-us/contactus" target=_blank>
+			<!--<a href="https://support.microsoft.com/en-us/contact/menu/" target=_blank>
 			<button class="abutton" onmouseover="mouseover(this);" onmousedown="mousedown(this);" onmouseup="mouseover(this);" onmouseout="mouseout(this);">
 			<div class="pic-link">
-			<img border="0" src="https://assets.onestore.ms/cdnfiles/external/uhf/long/9a49a7e9d8e881327e81b9eb43dabc01de70a9bb/images/microsoft-gray.png" class="pic-x" alt="Microsoft Support" />
+			<div class="text-x">Microsoft Support</div>
 			</div>
 			<div class="caption">
                         MS Support
 			</div>
 			</button>
-			</a>
+			</a>-->
             <div class=tab>
                 <strong style="color:#FFFFFF;">Solve a problem</strong>
             </div>
@@ -549,63 +559,9 @@ border: 0px;
                         Wikipedia (En)
                     </div>
                 </button>
-            </a><a href="https://www.google.fr/" target=_blank>
-                <button class="abutton" onmouseover="mouseover(this);" onmousedown="mousedown(this);" onmouseup="mouseover(this);" onmouseout="mouseout(this);">
-                    <div class="pic-link">
-                        <img src="https://www.google.fr/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" class="pic-x" alt="google.fr" />
-                    </div>
-                    <div class="caption">
-                        Google.fr
-                    </div>
-                </button>
-			</a><a href="https://www.google.de/" target=_blank>
-                <button class="abutton" onmouseover="mouseover(this);" onmousedown="mousedown(this);" onmouseup="mouseover(this);" onmouseout="mouseout(this);">
-                    <div class="pic-link">
-                        <img src="https://www.google.de/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" class="pic-x" alt="google.de" />
-                    </div>
-                    <div class="caption">
-                        Google.de
-                    </div>
-                </button>
-			</a><a href="https://www.google.co.jp/" target=_blank>
-                <button class="abutton" onmouseover="mouseover(this);" onmousedown="mousedown(this);" onmouseup="mouseover(this);" onmouseout="mouseout(this);">
-                    <div class="pic-link">
-                        <img src="https://www.google.co.jp/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" class="pic-x" alt="google.co.jp" />
-                    </div>
-                    <div class="caption">
-                        Google.co.jp
-                    </div>
-                </button>
-			</a><a href="https://www.google.com.hk/" target=_blank>
-                <button class="abutton" onmouseover="mouseover(this);" onmousedown="mousedown(this);" onmouseup="mouseover(this);" onmouseout="mouseout(this);">
-                    <div class="pic-link">
-                        <img src="https://www.google.com.hk/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" class="pic-x" alt="google.com.hk" />
-                    </div>
-                    <div class="caption">
-                        Google.com.hk
-                    </div>
-                </button>
-			</a><a href="https://www.google.it/" target=_blank>
-                <button class="abutton" onmouseover="mouseover(this);" onmousedown="mousedown(this);" onmouseup="mouseover(this);" onmouseout="mouseout(this);">
-                    <div class="pic-link">
-                        <img src="https://www.google.it/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" class="pic-x" alt="google.it" />
-                    </div>
-                    <div class="caption">
-                        Google.it
-                    </div>
-                </button>
-			</a><a href="https://www.google.co.uk/" target=_blank>
-                <button class="abutton" onmouseover="mouseover(this);" onmousedown="mousedown(this);" onmouseup="mouseover(this);" onmouseout="mouseout(this);">
-                    <div class="pic-link">
-                        <img src="https://www.google.co.uk/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" class="pic-x" alt="google.co.uk" />
-                    </div>
-                    <div class="caption">
-                        Google.co.uk
-                    </div>
-                </button>
             </a>
             <div class=tab>
-                <strong style="color:#FFFFFF;">Social</strong>
+                <strong>Social</strong>
             </div>
             <hr />
             <a href="http://yeah.net/" target=_blank>
@@ -671,7 +627,7 @@ border: 0px;
     <address style="text-align:right;font-family:Microsoft Yahei;color:#ffffff;">
       创建时间：2017/12/11(UTC)
       <br/>
-        最后一次更新时间：12:13 - 13/3/2018(UTC)
+        最后一次更新时间：2017/12/24(UTC)
         <br/>
           制作人员：Paradoxe
           <br/>
